@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: boisko_dla_mnie
+
+test:
+  <<: *default
+  database: boisko_dla_mnie\_test
+
+production:
+  <<: *default
+  database: trail_blog_production
+  username: KKP
+  password: <%= ENV['BOSIKO_DATABASE_PASSWORD'] %>
