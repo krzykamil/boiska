@@ -34,20 +34,18 @@ describe BoiskoDlaMnieSchema do
       let!(:court_2) { create(:court, subsoil_type: 'concrete') }
       let!(:court_3) { create(:court, subsoil_type: 'tartan') }
       let!(:court_4) { create(:court, district: 'Nowe Miasto') }
-      let!(:court_5) { create(:court, area: 21) }
-      let!(:variables) { { district: 'Jaroszówka', school: 'SP', minimalArea: 12, maximalArea: 20, subsoilType: 'grass' } }
+      let!(:variables) { { district: 'Jaroszówka', school: 'SP', subsoilType: 'grass' } }
       let!(:query_string) do
         <<-GraphQL
-      query($district: String, $school: String, $minimalArea: Int, $maximalArea: Int, $subsoilType: String){
+      query($district: String, $school: String, $subsoilType: String){
         courts(district: $district
         school: $school
-        minimalArea: $minimalArea
-        maximalArea: $maximalArea
         subsoilType: $subsoilType) {
           id
           district
           school
-          area
+          width
+          length
           subsoilType
         }
       }
@@ -58,7 +56,8 @@ describe BoiskoDlaMnieSchema do
         expect(courts_found[0]).to eq(
           'district' => 'Jaroszówka',
           'school' => 'SP 2',
-          'area' => 12,
+          'width' => 80,
+          'length' => 120,
           'subsoilType' => 'grass',
           'id' => court_1.id.to_s
         )

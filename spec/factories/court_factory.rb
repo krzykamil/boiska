@@ -2,7 +2,8 @@
 FactoryBot.define do
   factory :court do
     district { 'Jaroszówka' }
-    area { 12 }
+    width { 80 }
+    length { 120 }
     subsoil_type { 'grass' }
     sequence(:school) {|n| "SP #{n}"}
   end
