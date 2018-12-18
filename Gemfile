@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'bcrypt', '~> 3.1.7'
 gem 'dry-validation'
 gem 'jbuilder', '~> 2.5'
 gem 'pg'
@@ -16,13 +17,17 @@ gem 'trailblazer-rails'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 gem 'graphql'
-
+gem 'rubocop-rspec'
+gem 'json_web_token'
 
 group :development, :test do
+  gem 'factory_bot_rails', '~> 4.11', '>= 4.11.1'
+  gem 'database_cleaner', '~> 1.7'
   gem 'pry'
   gem 'rspec-rails'
   gem 'rubocop'
   gem 'selenium-webdriver'
+  gem 'shoulda-matchers', '~> 3.1', '>= 3.1.2'
 end
 
 group :development do
