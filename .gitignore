@@ -21,6 +21,6 @@
 /yarn-error.log
 
 .byebug_history
-database.yml
+/config/database.yml
 .rubocop.yml
 .rubocop_todo.yml

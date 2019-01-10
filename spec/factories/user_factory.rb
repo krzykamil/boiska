@@ -1,4 +1,3 @@
-#encoding: utf-8
 FactoryBot.define do
   factory :user do
     name { 'Krzysztof' }
