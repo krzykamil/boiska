@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(sign_params)
-    if @user.before_save
+    if @user.save
       redirect_to @user
     else
       render 'new'

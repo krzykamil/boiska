@@ -19,20 +19,23 @@ describe BoiskoDlaMnieSchema do
           name: 'Ludwig The Acursed',
           email: 'ludwigthb@blood.borne',
           password: 'theholychurch',
+          password_confirmation: 'theholychurch',
           phone: '666111222'
         }
       end
       let!(:query_string) do
         <<-GraphQL
-      mutation($name: String!, $email: String!, $password: String!, $phone: String!){
+      mutation($name: String!, $email: String!, $password: String!, $password_confirmation: String!, $phone: String!){
         createUser(name: $name
         email: $email
         password: $password
+        passwordConfirmation: $password_confirmation
         phone: $phone) {
           id
           name
           email
           password
+          passwordConfirmation
           phone
         }
       }
@@ -45,6 +48,7 @@ describe BoiskoDlaMnieSchema do
           'email' => 'ludwigthb@blood.borne',
           'id' => User.last.id.to_s,
           'password' => 'theholychurch',
+          'passwordConfirmation' => 'theholychurch',
           'phone' => '666111222'
         )
         expect(users_created.count).to eq 1
