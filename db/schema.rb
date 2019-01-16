@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20190117141527) do
     t.string "phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "password_confirmation"
   end
 
   add_foreign_key "reservations", "courts", on_delete: :cascade
