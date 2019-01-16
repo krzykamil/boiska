@@ -1,6 +1,6 @@
 module Types
   class UserType < Types::BaseObject
-    graphql_name "User"
+    graphql_name 'User'
     description 'Ja'
     field :id, ID, null: false
     field :name, String, null: false
