@@ -43,7 +43,7 @@ describe BoiskoDlaMnieSchema do
         expect(users_created[0]).to eq(
           'name' => 'Ludwig The Acursed',
           'email' => 'ludwigthb@blood.borne',
-          'id' => '1',
+          'id' => User.last.id.to_s,
           'password' => 'theholychurch',
           'phone' => '666111222'
         )
