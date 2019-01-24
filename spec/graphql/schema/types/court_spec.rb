@@ -51,7 +51,7 @@ describe BoiskoDlaMnieSchema do
       }
         GraphQL
       end
-      it 'find one good school' do
+      it 'find one good court' do
         courts_found = result['data']['courts']
         expect(courts_found[0]).to eq(
           'district' => 'Jaroszówka',
@@ -62,6 +62,42 @@ describe BoiskoDlaMnieSchema do
           'id' => court_1.id.to_s
         )
         expect(courts_found.count).to eq 1
+      end
+      context 'with given date' do
+        let!(:variables) { {date: '2019-01-24 13:00:00' } }
+        let!(:query_string) do
+          <<-GraphQL
+        query($district: String, $school: String, $subsoilType: String, $date: String){
+          courts(district: $district
+          school: $school
+          subsoilType: $subsoilType
+          date: $date) {
+            id
+            district
+            school
+            width
+            length
+            subsoilType
+          }
+        }
+          GraphQL
+        end
+        let!(:court_params) do
+          {
+            district: 'Centrum',
+            school: 'LO 1',
+            subsoil_type: 'grass',
+            administrator: create(:user),
+            supervisor: create(:user)
+          }
+        end
+        let!(:court_5){ create(:court) }
+        let!(:reservation){ create(:reservation, court: court_5, time_from: '2019-01-24 17:00:00', time_to: '2019-01-24 18:00:00' ) }
+        it 'finds 5 available courts' do
+          CreateCourt.new(court_params, school: true).process
+          courts_found = result['data']['courts']
+          expect(courts_found.count).to eq 5
+        end
       end
     end
   end
