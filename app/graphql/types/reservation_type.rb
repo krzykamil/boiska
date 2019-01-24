@@ -7,6 +7,5 @@ module Types
     field :time_to, String, null: false
     field :user, Types::UserType, null: false
     field :court, Types::CourtType, null: false
-
   end
 end

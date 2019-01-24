@@ -1,8 +1,8 @@
 module Searches
   class CourtSearch < BaseSearch
-    FIELDS = [
-      :district, :school, :subsoil_type
-    ]
+    FIELDS = %i[
+      district school subsoil_type
+    ].freeze
     attr_accessor(*FIELDS)
 
     def search
@@ -12,6 +12,5 @@ module Searches
       courts = courts.where(subsoil_type: @subsoil_type) if @subsoil_type.present?
       courts
     end
-
   end
 end

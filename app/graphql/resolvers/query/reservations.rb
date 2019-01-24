@@ -9,6 +9,5 @@ class Resolvers::Query::Reservations < Resolvers::BaseResolver
   def resolve(**args)
     courts = Searches::CourtSearch.new(args).search
     reservations = Reservation.where(court: courts)
-
   end
 end

@@ -5,5 +5,7 @@ FactoryBot.define do
     length { 120 }
     subsoil_type { 'grass' }
     sequence(:school) { |n| "SP #{n}" }
+    administrator { create(:user) }
+    supervisor { create(:user) }
   end
 end
