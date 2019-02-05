@@ -1,0 +1,9 @@
+.palac
+  %header
+    %h1 Log in
+    = form_for(:session, url: sessions_path) do |f|
+      = f.label :email, class: 'a'
+      = f.email_field :email, class: 'b', placeholder: 'Email' , autocomplete: "on"
+      = f.label :password, class: 'a'
+      = f.password_field :password, class: 'b', placeholder: 'Password'
+      = f.submit "Log in", class: "button"

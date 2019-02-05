@@ -17,6 +17,7 @@ gem 'trailblazer-rails'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 gem 'graphql'
+gem 'haml'
 gem 'rubocop-rspec'
 gem 'json_web_token'
 

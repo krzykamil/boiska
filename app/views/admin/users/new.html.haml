@@ -1,0 +1,6 @@
+.palac
+  %header.header__style
+    %h1 New user
+  %main
+    = render 'form', url: admin_users_path
+    = link_to 'Back to Users', admin_users_path, class: "button"

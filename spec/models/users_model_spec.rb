@@ -2,7 +2,10 @@ require 'rails_helper'
 
 describe User, type: :model do
   describe 'validation tests' do
-    let!(:user1) { create :user, email: 'dupa@dupa.pl' }
+    let!(:user1) do
+      create :user, name: 'Piecia', email: 'post@post.pl',
+                    password_digest: '123', phone: '123456789'
+    end
     it 'ensure user is valid' do
       expect(user1).to be_valid
     end
@@ -22,7 +25,7 @@ describe User, type: :model do
     end
     context 'email errors' do
       let!(:user2) do
-        described_class.new(name: 'Piecia', email: 'Dupa@dupa.pl', password: '123',
+        described_class.new(name: 'Piecia', email: 'post@post.pl', password: '123',
                             phone: '123456789')
       end
       let!(:user3) do
@@ -32,12 +35,12 @@ describe User, type: :model do
       it 'it has already been taken' do
         expect(user2).to_not be_valid
         expect(user2.errors[:email]).to eq ['has already been taken']
-        expect(user2.errors.count).to eq 1
+        expect(user2.errors.count).to eq 2
       end
       it 'is too long' do
         expect(user3).to_not be_valid
         expect(user3.errors[:email]).to eq ['is too long (maximum is 255 characters)']
-        expect(user3.errors.count).to eq 1
+        expect(user3.errors.count).to eq 2
       end
     end
     context 'password errors' do

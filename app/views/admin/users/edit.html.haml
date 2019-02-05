@@ -1,0 +1,6 @@
+.palac
+  %header
+    %h1 Update user
+    = link_to 'Back to Users', admin_users_path, class: 'button'
+  %main
+    = render 'form', url: admin_user_path(@user)

@@ -2,10 +2,10 @@ require 'rails_helper'
 
 describe Admin::SessionsController, type: :controller do
   describe 'POST #create' do
-    let!(:user1) { create :user, password: 'qwe', email: 'dupa@dupa.pl' }
+    let!(:user1) { create :user, password: 'qwe', email: 'post@post.pl' }
     context 'when credientials is valid' do
       it 'redirect user to user page' do
-        post :create, params: { email: 'dupa@dupa.pl', password: 'qwe' }
+        post :create, params: { email: 'post@post.pl', password: 'qwe' }
         expect(response).to redirect_to users_path
         expect(response).to have_http_status(:redirect)
       end
