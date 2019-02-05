@@ -6,7 +6,7 @@ class Resolvers::Query::Courts < Resolvers::BaseResolver
   argument :district, String, required: false
   argument :school, String, required: false
   argument :subsoil_type, String, required: false
-  argument :date_available, String, required: false
+  argument :date, String, required: false
 
   def resolve(**args)
     Searches::CourtSearch.new(args).search
