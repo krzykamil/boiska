@@ -64,7 +64,7 @@ describe BoiskoDlaMnieSchema do
         expect(courts_found.count).to eq 1
       end
       context 'with given date' do
-        let!(:variables) { {date: '2019-01-24 13:00:00' } }
+        let!(:variables) { { date: '2019-01-24 13:00:00' } }
         let!(:query_string) do
           <<-GraphQL
         query($district: String, $school: String, $subsoilType: String, $date: String){
@@ -91,8 +91,8 @@ describe BoiskoDlaMnieSchema do
             supervisor: create(:user)
           }
         end
-        let!(:court_5){ create(:court) }
-        let!(:reservation){ create(:reservation, court: court_5, time_from: '2019-01-24 17:00:00', time_to: '2019-01-24 18:00:00' ) }
+        let!(:court_5) { create(:court) }
+        let!(:reservation) { create(:reservation, court: court_5, time_from: '2019-01-24 17:00:00', time_to: '2019-01-24 18:00:00' ) }
         it 'finds 5 available courts' do
           CreateCourt.new(court_params, school: true).process
           courts_found = result['data']['courts']
