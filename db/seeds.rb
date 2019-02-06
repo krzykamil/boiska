@@ -10,16 +10,16 @@ supervisor = User.create(name: 'Igor Igorowski', email: 'igor@rosja.com', passwo
 administrator = User.create(name: 'Igor Drugi', email: 'igor_drugi@rosja.com', password: '123456', phone: '123123456')
 user = User.create(name: 'Igor Trzeci', email: 'igor_trzeci@rosja.com', password: '123456', phone: '789123456')
 CreateCourt.new({
-  district: 'Wygoda',
-  school: 'SP 1',
-  subsoil_type: 'grass',
-  width: 60,
-  length: 100,
-  administrator: administrator,
-  supervisor: supervisor
-},school: true).process
-CreateReservation.new({school: false,
-time_from: DateTime.strptime('2019-01-01 12:00', '%Y-%m-%d %H:%M'),
-time_to: DateTime.strptime('2019-01-01 14:00', '%Y-%m-%d %H:%M'),
-court_id: court.id,
-user: user})
+                  district: 'Wygoda',
+                  school: 'SP 1',
+                  subsoil_type: 'grass',
+                  width: 60,
+                  length: 100,
+                  administrator: administrator,
+                  supervisor: supervisor
+                }, school: true).process
+CreateReservation.new(school: false,
+                      time_from: DateTime.strptime('2019-01-01 12:00', '%Y-%m-%d %H:%M'),
+                      time_to: DateTime.strptime('2019-01-01 14:00', '%Y-%m-%d %H:%M'),
+                      court_id: court.id,
+                      user: user)
