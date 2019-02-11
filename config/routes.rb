@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   scope module: 'admin' do
-    resources :sessions, only: %i[new create show destroy]
+    resources :sessions
   end
   namespace :admin do
     resources :users

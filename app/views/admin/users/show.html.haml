@@ -1,0 +1,14 @@
+.palac
+  %header.header__style
+    %h1 Nowy użytkownik
+  %p.paragraph__style
+    %strong Użytkownik:
+    = @user.name
+  %p.paragraph__style
+    %strong Text:
+    = @user.email
+  %p.paragraph__style
+    %strong Text:
+    = @user.phone
+  = link_to 'Back to Users', admin_users_path, class: 'button'
+  = link_to 'Edit', edit_admin_user_path,class: 'button'

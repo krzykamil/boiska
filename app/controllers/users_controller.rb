@@ -7,6 +7,8 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def index; end
+
   def create
     @user = User.new(sign_params)
     if @user.save

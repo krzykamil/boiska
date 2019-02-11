@@ -1,0 +1,36 @@
+
+.palac
+  %header.header__style
+    %h1 Administration
+    = link_to 'Add User', new_admin_user_url , class:"button"
+
+    -# %table
+    -#   %tr
+    -#     %th Name
+    -#     %th Email
+    -#     %th Phone
+    -#     %th
+    -#     %th
+    -#   - @users.each do |user|
+    -#     %tr
+    -#       %td= user.name
+    -#       %td= user.email
+    -#       %td= user.phone
+    -#       %td= link_to 'Edit', edit_admin_user_path(user)
+    -#       %td= link_to 'Destroy', admin_user_url(user), method: :delete, data:{confirm: 'Are you sure?'}
+  .table
+    .table-row
+      .table-cellName Name
+      .table-cellName Email
+      .table-cellName Phone
+      .table-cellName Created at
+      .table-cellName Edit
+      .table-cellName Destroy
+    - @users.each do |user|
+      .table-row
+        .table-cell= user.name
+        .table-cell= user.email
+        .table-cell= user.phone
+        .table-cell= user.created_at.strftime("%d-%m-%Y")
+        .table-cell= link_to 'Edit', edit_admin_user_path(user), class: 't'
+        .table-cell= link_to 'Destroy', admin_user_url(user), method: :delete, data:{confirm: 'Are you sure?'}, class: 'z'

@@ -1,0 +1,12 @@
+= form_for @user, url: url do |form|
+  = form.label :name, class: 'a'
+  = form.text_field :name, class: 'b', placeholder: 'Name'
+  = form.label :email, class: 'a'
+  = form.text_field :email,class: 'b', placeholder: 'Email'
+  = form.label :password, class: 'a'
+  = form.password_field :password,class: 'b', placeholder: 'Password'
+  = form.label :password_confirmation, class: 'a'
+  = form.password_field :password_confirmation,class: 'b', placeholder: 'Password confirmation'
+  = form.label :phone, class: 'a'
+  = form.text_field :phone, class: 'b', placeholder: 'Phone'
+  = form.submit class: 'c'
