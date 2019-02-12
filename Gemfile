@@ -7,6 +7,7 @@ end
 
 gem 'bcrypt', '~> 3.1.7'
 gem 'dry-validation'
+gem 'pundit'
 gem 'jbuilder', '~> 2.5'
 gem 'pg'
 gem 'puma', '~> 3.7'
