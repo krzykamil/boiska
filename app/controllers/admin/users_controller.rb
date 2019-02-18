@@ -1,6 +1,5 @@
 module Admin
   class UsersController < AdminController
-  include Pagy::Backend
 
     def show
       @user = User.find(params[:id])
