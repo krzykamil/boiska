@@ -34,3 +34,4 @@
         .table-cell= user.created_at.strftime("%d-%m-%Y")
         .table-cell= link_to 'Edit', edit_admin_user_path(user), class: 't'
         .table-cell= link_to 'Destroy', admin_user_url(user), method: :delete, data:{confirm: 'Are you sure?'}, class: 'z'
+= pagy_nav(@pagy)

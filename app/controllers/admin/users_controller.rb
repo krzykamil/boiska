@@ -1,5 +1,7 @@
 module Admin
   class UsersController < AdminController
+  include Pagy::Backend
+
     def show
       @user = User.find(params[:id])
     end
@@ -13,7 +15,7 @@ module Admin
     end
 
     def index
-      @users = User.all
+      @pagy, @users =  pagy(User.all)
     end
 
     def create
